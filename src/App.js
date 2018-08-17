@@ -1,7 +1,11 @@
 import React, { Component } from 'react';
-import Users from './containers/Users';
-import Mountain from './containers/Mountain';
 import { Link, Route } from 'react-router-dom';
+import Users from './containers/Users';
+import asyncComponent from './hoc/asyncComponent'; 
+
+const AsyncMountain = asyncComponent(() => {
+  return import('./containers/Mountain.js');
+});
 
 class App extends Component {
   render() {
@@ -14,7 +18,7 @@ class App extends Component {
         <div>
           <Route path="/" exact component={Users}/>
           {/* mountain should be loazy loaded */}
-          <Route path="/mountain" exact component={Mountain}/>
+          <Route path="/mountain" exact component={AsyncMountain}/>
         </div>
       </div>
     );
