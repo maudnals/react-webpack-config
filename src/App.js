@@ -4,6 +4,7 @@ import Users from './containers/Users';
 import asyncComponent from './hoc/asyncComponent'; 
 
 const AsyncMountain = asyncComponent(() => {
+  // return dynamic import
   return import('./containers/Mountain.js');
 });
 

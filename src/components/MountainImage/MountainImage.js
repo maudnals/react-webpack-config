@@ -4,7 +4,7 @@ import MountainImage from '../../assets/mountain.jpg';
 
 const mountainImage = (props) => (
   <div className={classes.MoutainImage}>
-    <img src={} alt=""/>
+    <img src={MountainImage} alt="" className={classes.MountainImg}/>
   </div>
 );
 
