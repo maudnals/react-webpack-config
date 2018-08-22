@@ -2,11 +2,13 @@ const path = require('path');
 const autoprefixer = require('autoprefixer');
 
 module.exports = {
+  mode: 'development',
   devtool: 'cheap-module-eval-source-map',
   entry: './src/index.js',
   output: {
     path: path.resolve(__dirname, 'dist'),
     filename: 'bundle.js',
+    chunkFilename: '[id].js',
     publicPath: ''
   },
   resolve: {
@@ -34,7 +36,7 @@ module.exports = {
           {
             loader: 'postcss-loader',
             options: {
-              ident: postcss,
+              ident: 'postcss',
               plugins: () => [
                 autoprefixer({
                   browsers: [
@@ -50,7 +52,7 @@ module.exports = {
       },
       {
         test: /\.(png|jpe?g|gif)$/,
-        loader: 
+        loader: 'url-loader?limit=8000&name=images/[name].[ext]'
       }
     ]
   }
